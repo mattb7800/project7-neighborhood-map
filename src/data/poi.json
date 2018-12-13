@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Cherokee 16 Cinemas",
+    "address": "355 Cinema View",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30189",
+    "url": "http://www.regmovies.com",
+    "pos": {"lat":34.107487,"lng":-84.543142}
+  },
+  {
+    "name": "Woodstock Amphitheater",
+    "address": "101 Arnold Mill Rd",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30188",
+    "url": "http://www.woodstockga.gov/Calendar.aspx?EID=1426",
+    "pos": {"lat":34.101315,"lng":-84.519037}
+  }
+]
