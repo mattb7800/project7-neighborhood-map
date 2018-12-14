@@ -1,0 +1,50 @@
+
+[
+  {
+    "name": "Cherokee 16 Cinemas",
+    "address": "355 Cinema View",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30189",
+    "url": "http://www.regmovies.com",
+    "pos": {"lat":34.107487,"lng":-84.543142}
+  },
+  {
+    "name": "Woodstock Amphitheater",
+    "address": "101 Arnold Mill Rd",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30188",
+    "url": "http://www.woodstockga.gov/Calendar.aspx?EID=1426",
+    "pos": {"lat":34.101315,"lng":-84.519037}
+  },
+  {
+    "name": "The Oulet Shoppes of Atlanta",
+    "address": "915 Ridgewalk Pkwy",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30188",
+    "url": "https://www.theoutletshoppesatatlanta.com",
+    "pos": {"lat": 34.1213,"lng":-84.523167}
+  },
+  {
+    "name": "SunTrust Park - Home of the Braves",
+    "address": "755 Battery Ave SE",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30339",
+    "url": "https://www.mlb.com/braves/ballpark",
+    "pos": {"lat": 33.89077,"lng":-84.467565}
+  },
+  {
+    "name": "Georgia Aquarium",
+    "address": "225 Baker St NW",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30313",
+    "url": "https://www.georgiaaquarium.org/",
+    "pos": {"lat": 33.763876,"lng":-84.394777}
+  }
+
+
+]

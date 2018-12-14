@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import poi from './data/poi.json';
+import pois from './data/pois.json';
 import MyMap from './components/MyMap';
 
-
+// poi = point of interest //
 class App extends Component {
   state = {
-    lat: 34.1015,
-    lon: -84.5194,
+    lat: 34.101318,
+    lon: -84.519379,
     zoom: 12,
-    all: poi
+    all: pois
   }
 
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
           lat={this.state.lat}
           lon={this.state.lon}
           zoom={this.state.zoom}
-          poi={this.state.all}>
+          pois={this.state.all}>
         </MyMap>
       </div>
     );
