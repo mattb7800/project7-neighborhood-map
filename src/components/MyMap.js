@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 
-const MAP_KEY= 'AIzaSyBmySOqM-4Va1YaSNd-DBYy3fTdk6flm-A';
+const MAP_KEY= 'KEY;
 
 class MyMap extends Component {
   state = {
