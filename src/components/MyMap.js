@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-
-const MAP_KEY= 'KEY;
+// info on version control for foursquare can be found at this URL
+// https://developer.foursquare.com/docs/api/configuration/versioning
+const MAP_KEY= 'AIzaSyBmySOqM-4Va1YaSNd-DBYy3fTdk6flm-A';
+const FS_CLIENT= 'XALQZNP4VNPBEK1Q2O40S2TGFSUWSFYK4LD5GNYXQDRSYQ2S';
+const FS_SECRET= 'MKI54KKLSFOSNWXWZ44JHWUDBI3CAFY2ZRBWEAKJ4S0MYZ0N';
+const FS_VERSION= '20181130';
 
 class MyMap extends Component {
   state = {
@@ -30,10 +34,59 @@ closeInfoWindow = () => {
   this.setState({showInfoWindow: false, activeMarker: null, activeMarkerProps: null});
 }
 
+getBusinessInfo = (props, data) => {
+  return data
+  .response
+  .venues
+  .filter(item => item.name.includes(props.name) || props.name.includes(item.name));
+}
+
 onMarkerClick =(props, marker, e) => {
   this.closeInfoWindow();
 
-  this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps: props});
+//Good info on creating search in FourSquare api
+//https://developer.foursquare.com/docs/api/venues/search
+
+  let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=$(FS_VERSION)&radius=100&ll=${props.position.lat},${props.position.lng}&llAcc=100`;
+  let headers = new Headers();
+  let request = new Request(url, {
+    method: 'GET',
+    headers
+  });
+
+  //Set up Properties for the active marker
+
+  let activeMarkerProps;
+  fetch(request)
+    .then(response => response.json())
+    .then(result => {
+      let place= this.getBusinessInfo(props, result);
+      activeMarkerProps = {
+        ...props,
+        foursquare: place[0]
+    };
+
+    //Check for Images in results from foursquare
+    if (activeMarkerProps.foursquare) {
+      let url = `https://api.foursquare.com/v2/venues/${place[0].id}/photos?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}`;
+      fetch(url)
+      .then(response => response.json())
+      .then(result => {
+        activeMarkerProps = {
+          ...activeMarkerProps,
+          images: result.response.photos
+        };
+        if (this.state.activeMarker)
+          this.state.activeMarker.setAnimation(null);
+        marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+        this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps});
+      })
+    } else {
+      marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+      this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps: props});
+    }
+  })
+
 }
 
 changeMarkersStatus = (pois) => {
@@ -104,6 +157,16 @@ changeMarkersStatus = (pois) => {
                     ? ( <a href ={this.state.activeMarkerProps.url}>Visit Website</a>
                     )
                     : ""}
+            {this.state.activeMarkerProps && this.state.activeMarkerProps.images
+              ? (
+                <div><img
+                alt={this.state.activeMarkerProps.name + "piture of building"}
+                src={this.state.activeMarkerProps.images.items[0].prefix + "120x120" + this.state.activeMarkerProps.images.items[0].suffix}/>
+                <p> Image Courtesy of FourSquare</p>
+                </div>
+              )
+              :""
+            }
           </div>
         </InfoWindow>
       </Map>
