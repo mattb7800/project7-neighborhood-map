@@ -19,7 +19,7 @@
     "pos": {"lat":34.101315,"lng":-84.519037}
   },
   {
-    "name": "The Oulet Shoppes of Atlanta",
+    "name": "The Outlet Shoppes of Atlanta",
     "address": "915 Ridgewalk Pkwy",
     "city": "Woodstock",
     "state": "GA",
@@ -44,6 +44,15 @@
     "zip": "30313",
     "url": "https://www.georgiaaquarium.org/",
     "pos": {"lat": 33.763876,"lng":-84.394777}
+  },
+  {
+    "name": "La Parrilla Mexican Restaurant",
+    "address": "1065 Buckhead Crossing",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30188",
+    "url": "https://laparrilla.com/",
+    "pos": {"lat": 34.106020,"lng":-84.54212}
   }
 
 

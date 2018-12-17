@@ -34,7 +34,7 @@ closeInfoWindow = () => {
   this.setState({showInfoWindow: false, activeMarker: null, activeMarkerProps: null});
 }
 
-getBusinessInfo = (props, data) => {
+getPoiInfo = (props, data) => {
   return data
   .response
   .venues
@@ -47,7 +47,8 @@ onMarkerClick =(props, marker, e) => {
 //Good info on creating search in FourSquare api
 //https://developer.foursquare.com/docs/api/venues/search
 
-  let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=$(FS_VERSION)&radius=100&ll=${props.position.lat},${props.position.lng}&llAcc=100`;
+let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}&radius=100&ll=${props.position.lat},${props.position.lng}&llAcc=100`;
+
   let headers = new Headers();
   let request = new Request(url, {
     method: 'GET',
@@ -60,7 +61,7 @@ onMarkerClick =(props, marker, e) => {
   fetch(request)
     .then(response => response.json())
     .then(result => {
-      let place= this.getBusinessInfo(props, result);
+      let place= this.getPoiInfo(props, result);
       activeMarkerProps = {
         ...props,
         foursquare: place[0]
@@ -70,11 +71,11 @@ onMarkerClick =(props, marker, e) => {
     if (activeMarkerProps.foursquare) {
       let url = `https://api.foursquare.com/v2/venues/${place[0].id}/photos?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}`;
       fetch(url)
-      .then(response => response.json())
-      .then(result => {
-        activeMarkerProps = {
-          ...activeMarkerProps,
-          images: result.response.photos
+        .then(response => response.json())
+        .then(result => {
+          activeMarkerProps = {
+            ...activeMarkerProps,
+            images: result.response.photos
         };
         if (this.state.activeMarker)
           this.state.activeMarker.setAnimation(null);
