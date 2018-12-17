@@ -54,6 +54,11 @@ filterPois =(pois, query) => {
   return pois.filter(poi => poi.name.toLowerCase().includes(query.toLowerCase()));
 }
 
+clickListItem = (index) => {
+
+  this.setState({selectedIndex: index, open: !this.state.open})
+}
+
 displayList = () => {
   this.setState({
     open: !this.state.open
@@ -72,11 +77,13 @@ displayList = () => {
           lat={this.state.lat}
           lon={this.state.lon}
           zoom={this.state.zoom}
+          clickListItem={this.clickListItem}
           pois={this.state.filtered}/>
           <PoisList
           pois = {this.state.filtered}
           open =  {this.state.open}
           filterPois={this.updateQuery}
+          clickListItem={this.clickListItem}
           displayList = {this.displayList}/>
 
 

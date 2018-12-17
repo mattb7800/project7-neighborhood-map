@@ -60,10 +60,10 @@ class PoisList extends Component {
               value={this.state.query} />
 
             <ul style={this.styles.bullets}>
-              {this.props.pois && this.props.pois.map((poi,index) => {
+              {this.props.pois && this.props.pois.map((poi, index) => {
                 return (
                   <li style={this.styles.listItem} key ={index}>
-                  <button style={this.styles.listLink} key ={index}>{poi.name}</button>
+                    <button style={this.styles.listLink} key ={index} onClick={e => this.props.clickListItem(index)}>{poi.name}</button>
                   </li>
                 )
               })}

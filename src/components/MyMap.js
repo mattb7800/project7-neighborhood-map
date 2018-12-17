@@ -17,7 +17,30 @@ class MyMap extends Component {
     showInfoWindow: false
   };
 
-  componentDidMount = () => {
+  componentDidMount = () => {}
+
+//changes number of visible markers on map once filter is applied.
+
+  componentWillReceiveProps = (props) => {
+    this.setState({firstDrop: false});
+
+    if (this.state.markers.length !== props.pois.length) {
+      this.closeInfoWindow();
+      this.changeMarkersStatus(props.pois);
+      this.setState({activeMarker: null});
+
+      return;
+    }
+
+    if (!props.selectedIndex || (this.state.activeMarker &&
+    (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
+      this.closeInfoWindow();
+    }
+    if (props.selectedIndex === null || typeof(props.selectedIndex) === 'undefined') {
+      return;
+    };
+
+    this.onMarkerClick(this.state.markerProps[props.selectedIndex], this.state.markers[props.selectedIndex]);
   }
 
   mapReady = (props, map) => {
@@ -26,7 +49,7 @@ class MyMap extends Component {
   }
 
 
-// Used URL below to make my markers
+// Used URL below for help setting up my markers
 // https://developers.google.com/maps/documentation/javascript/markers
 
 closeInfoWindow = () => {
