@@ -10,6 +10,15 @@
     "pos": {"lat":34.107487,"lng":-84.543142}
   },
   {
+    "name": "AMC Barrett Commons 24 Cinemas",
+    "address": "2600 Cobb Place Lane NW",
+    "city": "CKennesaw",
+    "state": "GA",
+    "zip": "30144",
+    "url": "https://www.amctheatres.com/movie-theatres/atlanta/amc-barrett-commons-24",
+    "pos": {"lat":34.016022,"lng":-84.571899}
+  },
+  {
     "name": "Woodstock Amphitheater",
     "address": "101 Arnold Mill Rd",
     "city": "Woodstock",
@@ -53,7 +62,17 @@
     "zip": "30188",
     "url": "https://laparrilla.com/",
     "pos": {"lat": 34.106020,"lng":-84.54212}
+  },
+  {
+    "name": "Tacos and Beer Mexican Restaurant",
+    "address": "5335 Old Hwy 5 suite 101",
+    "city": "Woodstock",
+    "state": "GA",
+    "zip": "30188",
+    "url": "https://tacosandbeer.net/",
+    "pos": {"lat": 34.14165,"lng":-84.507461}
   }
+
 
 
 ]

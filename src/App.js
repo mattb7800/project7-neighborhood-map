@@ -24,11 +24,11 @@ class App extends Component {
 
 styles = {
   menuButton: {
-    marginLeft: 20,
+    marginLeft: 5,
     marginRight: 20,
     position: 'absolute',
     left: 10,
-    top: 20,
+    top: 10,
     background: 'white',
     padding: 10
   },
@@ -54,7 +54,7 @@ filterPois =(pois, query) => {
   return pois.filter(poi => poi.name.toLowerCase().includes(query.toLowerCase()));
 }
 
-clickListItem = (index) => {
+selectPoi = (index) => {
 
   this.setState({selectedIndex: index, open: !this.state.open})
 }
@@ -77,13 +77,14 @@ displayList = () => {
           lat={this.state.lat}
           lon={this.state.lon}
           zoom={this.state.zoom}
-          clickListItem={this.clickListItem}
+          selectPoi={this.selectPoi}
+          selectedIndex={this.state.selectedIndex}
           pois={this.state.filtered}/>
           <PoisList
           pois = {this.state.filtered}
           open =  {this.state.open}
           filterPois={this.updateQuery}
-          clickListItem={this.clickListItem}
+          selectPoi={this.selectPoi}
           displayList = {this.displayList}/>
 
 

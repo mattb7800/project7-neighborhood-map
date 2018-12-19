@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+import MapUnavailable from './MapUnavailable'
 // info on version control for foursquare can be found at this URL
 // https://developer.foursquare.com/docs/api/configuration/versioning
 const MAP_KEY= 'AIzaSyBmySOqM-4Va1YaSNd-DBYy3fTdk6flm-A';
@@ -19,11 +20,11 @@ class MyMap extends Component {
 
   componentDidMount = () => {}
 
-//changes number of visible markers on map once filter is applied.
+
 
   componentWillReceiveProps = (props) => {
     this.setState({firstDrop: false});
-
+//changes number of visible markers on map once filter is applied.
     if (this.state.markers.length !== props.pois.length) {
       this.closeInfoWindow();
       this.changeMarkersStatus(props.pois);
@@ -200,4 +201,4 @@ changeMarkersStatus = (pois) => {
 
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY})(MyMap)
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainter: MapUnavailable})(MyMap)

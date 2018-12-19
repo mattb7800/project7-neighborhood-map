@@ -1,44 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Neighborhood Map Project
 
-## Available Scripts
+This app is list of things to do around Woodstock, GA. Each location is displayed as a marker on the map. If the marker is clicked some information about the location is displayed in an infobox (name, website and pic (if available)).
 
-In the project directory, you can run:
+If the menu button (top left) is clicked a list of location with a search field at the top is opened on the left side of the window. Typing in the search field will filter the list of locations and by clicking one of the locations listed the same infobox that comes up when the marker is displayed will be shown.
 
-### `npm start`
+clicking anywhere on the map will close the current info box and close the list of locations menu.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+# Setup and Install
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Download or Clone the repository: https://github.com/mattb7800/project7-neighborhood-map.git
+* cd to the directory the file was downloaded to
+* install npm by typing `npm install`
+* run `npm install` (This will start the program locally on port 3000).
 
-### `npm run build`
+# Resources
+* Google Maps
+* FourSquare (provided location pics if available)
+* Font Awesome (added to provide icon support for menu button)
+* REACT material-UI (prebuilt drawer component used to build PoiList)
+* Google-maps-react used for map display
+* https://scotch.io/tutorials/react-apps-with-the-google-maps-api-and-google-maps-react
+* //https://material-ui.com/demos/drawers/
+* https://developer.foursquare.com/docs
+* https://github.com/fullstackreact/google-maps-react/blob/master/README.md
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Special Note:** *I have used the default service worker for this app provided when it was recreated with `create-react-app`. Therefore it will only work on a production build.*
