@@ -66,13 +66,14 @@ displayList = () => {
 }
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <div>
           <button onClick={this.displayList} style = {this.styles.menuButton}>
             <i className='fa fa-bars'></i>
           </button>
           <h1>Things To Do Near Woodstock, GA</h1>
         </div>
+
         <MyMap
           lat={this.state.lat}
           lon={this.state.lon}
@@ -89,7 +90,7 @@ displayList = () => {
 
 
 
-      </div>
+      </main>
     );
   }
 }

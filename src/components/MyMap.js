@@ -109,6 +109,7 @@ let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&cl
     } else {
       marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
       this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps: props});
+
     }
   })
 
@@ -185,7 +186,7 @@ changeMarkersStatus = (pois) => {
             {this.state.activeMarkerProps && this.state.activeMarkerProps.images
               ? (
                 <div><img
-                alt={this.state.activeMarkerProps.name + "piture of building"}
+                alt={this.state.activeMarkerProps.name + "picture of building"}
                 src={this.state.activeMarkerProps.images.items[0].prefix + "120x120" + this.state.activeMarkerProps.images.items[0].suffix}/>
                 <p> Image Courtesy of FourSquare</p>
                 </div>
@@ -201,4 +202,4 @@ changeMarkersStatus = (pois) => {
 
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainter: MapUnavailable})(MyMap)
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainer: MapUnavailable})(MyMap)

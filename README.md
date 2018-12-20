@@ -13,7 +13,7 @@ clicking anywhere on the map will close the current info box and close the list 
 * Download or Clone the repository: https://github.com/mattb7800/project7-neighborhood-map.git
 * cd to the directory the file was downloaded to
 * install npm by typing `npm install`
-* run `npm install` (This will start the program locally on port 3000).
+* run `npm run start` (This will start the program locally on port 3000).
 
 # Resources
 * Google Maps

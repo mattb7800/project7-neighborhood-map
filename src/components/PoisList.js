@@ -54,6 +54,8 @@ class PoisList extends Component {
               style={this.styles.filterEntry}
               type='text'
               placeholder='Filter List'
+              role='search'
+              aria-label= 'Filter for your Point of Interest'
               name='filter'
               onChange={e => this
                 .updateQuery(e.target.value)}
