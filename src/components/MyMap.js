@@ -100,11 +100,12 @@ let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&cl
           activeMarkerProps = {
             ...activeMarkerProps,
             images: result.response.photos
+
         };
         if (this.state.activeMarker)
           this.state.activeMarker.setAnimation(null);
-        marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-        this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps});
+          marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+          this.setState({showInfoWindow: true, activeMarker: marker, activeMarkerProps});
       })
     } else {
       marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
@@ -191,7 +192,7 @@ changeMarkersStatus = (pois) => {
                 <p> Image Courtesy of FourSquare</p>
                 </div>
               )
-              :""
+              :<h3>"No FourSquare image available"</h3>
             }
           </div>
         </InfoWindow>
